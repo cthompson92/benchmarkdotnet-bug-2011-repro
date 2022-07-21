@@ -10,7 +10,7 @@ public class CSharpToFSharpQuicksortDataSourceConverter : ICSharpToFSharpQuickso
         return new FSharpQuickSortDataSource(data.Data, data.Category);
     }
 
-    private class FSharpQuickSortDataSource : IFSharpQuicksortDataSource
+    public class FSharpQuickSortDataSource : IFSharpQuicksortDataSource
     {
         public FSharpList<int> Data { get; }
         public string Category { get; }

@@ -105,9 +105,22 @@ module Utils =
         loop list [] (fun x -> x)
     
     let square x = x * x
+
+    let add x y = x + y
+
+    let add5 y = add 5 y
     
     let squaref (x: float) = x * x
     let squaref32 (x: float32) = x * x
     
     // inline - static typed generic
     let inline sq x = x * x
+
+    let inline median (input: seq<'a>, avg: 'a * 'a -> 'a) = 
+        let sorted = input |> Seq.toArray |> Array.sort
+        let len = sorted.Length-1
+        let i = len / 2;
+        match len with 
+        | _ when len % 2 = 0 -> sorted.[i]
+        | _ -> avg(sorted.[i] + sorted.[i+1])
+        
